@@ -253,23 +253,6 @@ while True:
             heart_rate=int(60/v)
             epoc_duration=int(v*1000)
             print('----------Next Epoc-----------')
-            #print ('The Heart Rate is',60/v,'bpm')
-            #print ('The Epoc Duaraion is',v, 'sec')
-            #print ('P Peak Position=',ppos,'ms')
-            #print ('Q Peak Position=',qpos,'ms')
-            #print ('R Peak Position=',rpos,'ms')
-            #print ('S Peak Position=',spos,'ms')
-            #print ('T Peak Position=',tpos,'ms')
-            #print ("QRS Complex Duration=",qrs,"ms")
-            #print ('P Wave Duration=',P_wave,'ms')
-            #print ('Q Wave Duration=',Q_wave,'ms')
-            #print ('R Wave Duration=',R_wave,'ms')
-            #print ('S Wave Duration=',S_wave,'ms')
-            #print ('T Wave Duration=',T_wave,'ms')
-            #print ('PR Interval Duration=',PR_interval,'ms')
-            #print ('QT Interval Duration=',QT_interval,'ms')
-            #print ('PR Segment Duration=',PR_segment,'ms')
-            #print ('ST Segment Duration=',ST_segment,'ms')
             example_ECG1 = [[heart_rate, epoc_duration,ppos,qpos,rpos,spos,tpos, P_wave, Q_wave, qrs, R_wave,S_wave, T_wave, PR_interval, QT_interval, PR_segment, ST_segment]]
             print(heart_rate, epoc_duration,int(ppos),int(qpos),int(rpos),int(spos),int(tpos), int(P_wave), int(Q_wave), int(qrs), int(R_wave),int(S_wave), int(T_wave), int(PR_interval), int(QT_interval), int(PR_segment), int(ST_segment))
             heart_rate1=(heart_rate1*(k-1)+heart_rate)/k
@@ -348,9 +331,6 @@ while True:
         svm = SVC(kernel='rbf', random_state=0, gamma=.10, C=1.0)
         svm.fit(X_train_std, y_train)
         example_ECG = [[P_wave1, Q_wave1, qrs1, R_wave1, T_wave1, heart_rate1, ST_segment1, QT_interval1, PR_interval1]]
-        #example_ECG = [[114,10,165,54,230,65,250,34,104,300,144]]
-        #example_ECG = [[190,83,200,111,222,55,10,55,111,120,115]]
-        #example_ECG = [[33,5,40,25,25,115,95,165,145]]
         example_ECG_scaled = sc.transform(example_ECG)
         print(svm.predict(example_ECG_scaled))
         print('Classified Output for given signal is',

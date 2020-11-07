@@ -248,23 +248,6 @@ for i in range(0,10):
     plt.scatter(ppos, ppeak, color='red')
     plt.scatter(spos, speak, color='red')
     plt.scatter(tpos, tpeak, color='red')
-    #plt.legend()
-    
-    #plt.subplot(222)
-    #plt.plot(epoc, label='QRS complex Detection')
-    #plt.scatter(array(qr)[:,0], array(qr)[:,1], color='red')
-    #plt.legend()
-    
-    #plt.subplot(223)
-    #plt.plot(epoc, label='P_wave Detection')
-    #plt.scatter(array(pp)[:,0], array(pp)[:,1], color='red')
-    #plt.legend()
-    
-    #plt.subplot(224)
-    #plt.plot(epoc, label='T_wave detection')
-    #plt.scatter(array(tt)[:,0], array(tt)[:,1], color='red')
-    #plt.legend()
-    #plt.savefig("signal.png")
     k=k+1
 
 print('===============================================average value=================================')
@@ -296,11 +279,7 @@ from sklearn.svm import SVC
 svm = SVC(kernel='rbf', random_state=0, gamma=.10, C=1.0)
 svm.fit(X_train_std, y_train)
 example_ECG = [[P_wave, Q_wave, qrs, R_wave, T_wave, heart_rate, ST_segment, QT_interval, PR_interval]]
-#example_ECG = [[114,10,165,54,230,65,250,34,104,300,144]]
-#example_ECG = [[190,83,200,111,222,55,10,55,111,120,115]]
-#example_ECG = [[33,5,40,25,25,115,95,165,145]]
 example_ECG_scaled = sc.transform(example_ECG)
-#print(svm.predict(example_ECG_scaled))
 print('Classified Output for given signal is', 
           target_names_ecg[svm.predict(example_ECG_scaled)[0]-1])
 plt.show()
